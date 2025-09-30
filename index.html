@@ -2,17 +2,29 @@
 <html>
     <head>
         <title>Minha loja online</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="form-container">
-            <h2>Adicionar novo produto</h2>
-            <form id="form-produto">
-                <input type="text" id="input-titulo" placeholder="Titulo do produto" required />
-                <input type="number" id="input-preco" placeholder="Preço" required />
-                <button type="submit">Adicionar Produto</button>
-            </form>
-        </div>
-        <div id="catalogo"></div>
+        <header>
+            <h1>Minha loja online</h1>
+        </header>
+        <main>
+            <section id="form-produto-container" class="form-container">
+                <h2>Adicionar novo produto</h2>
+                <form id="form-produto">
+                    <input type="text" id="input-titulo" placeholder="Titulo do produto" required />
+                    <input type="number" id="input-preco" placeholder="Preço" required />
+                    <button type="submit">Adicionar Produto</button>
+                </form>
+            </section>
+            <section id="catalogo-container" class="catalogo-container">
+                <h2>Produtos</h2>
+                <div id="catalogo"></div>
+            </section> 
+        </main>
+        <footer>
+            <p>&copy; 2025. Loja da turma 1433</p>
+        </footer>        
     </body>
     <script src="script.js"></script>
 </html>
