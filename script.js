@@ -7,7 +7,7 @@ let listaDeProdutos = [];
 
 function criarCardProduto(produto) {
     const card = document.createElement('article');
-    card.className = 'card-produto';
+    card.className = 'card-produto col-sm-12 col-md-6 col-lg-3';
     
     const imagem = document.createElement('img');
     imagem.src = produto.image || 'https://picsum.photos/200/300';
