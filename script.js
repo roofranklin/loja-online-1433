@@ -20,9 +20,17 @@ function criarCardProduto(produto) {
     const preco = document.createElement('p');
     preco.textContent = `R$ ${Number(produto.price).toFixed(2)}`;
 
+    const botaoDetalhes = document.createElement('button');
+    botaoDetalhes.classList.add('btn', 'btn-info', 'mt-4');
+    botaoDetalhes.textContent = 'Exibir detalhes';
+    botaoDetalhes.addEventListener('click', () => {
+        buscarDetalhesDoProduto(produto.id);
+    });
+
     card.appendChild(imagem);
     card.appendChild(titulo);
     card.appendChild(preco);
+    card.appendChild(botaoDetalhes);
 
     return card;
 }
@@ -114,6 +122,20 @@ formProduto.addEventListener('submit', function(event){
         inputPreco.value = '';
     }
 })
+
+async function buscarDetalhesDoProduto(id) {
+    try {
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        if (!response.ok){
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        const produto = await response.json();
+        console.log("Detalhes do produto: ", produto);
+    }
+    catch(erro) {
+        console.error("Ocorreu um erro na busca dos detalhes do produto:", erro);
+    }
+}
 
 
 window.onload = function() {
